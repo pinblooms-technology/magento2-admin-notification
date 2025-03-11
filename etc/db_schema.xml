@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="custom_notification" resource="default" engine="innodb" comment="Custom Notification Table">
+        <column xsi:type="int" name="notification_id" unsigned="true" nullable="false" identity="true" comment="Notification ID" />
+        <column xsi:type="varchar" name="notification_type" length="255" nullable="false" comment="Notification Type" />
+        <column xsi:type="varchar" name="message" length="255" nullable="false" comment="Notification Message" />
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Notification Created At" />
+        <column xsi:type="int" name="status" unsigned="true" default="0" nullable="false" comment="Notification Status (0 - Unread, 1 - Read)" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="notification_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="UNIQUE_NOTIFICATION">
+            <column name="notification_type" />
+            <column name="message" />
+        </constraint>
+    </table>
+</schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="numismatic_order_placed_observer" instance="PinBlooms\Notifications\Observer\OrderPlaced" />
+    </event>
+<event name="customer_register_success">
+    <observer name="numismatic_customer_register_observer" instance="PinBlooms\Notifications\Observer\CustomerRegistrationNotification" />
+</event>
+<event name="model_save_after">
+    <observer name="contact_form_submission_notification" instance="PinBlooms\Notifications\Observer\ContactFormSubmissionNotification" />
+</event>
+<event name="newsletter_subscriber_save_after">
+        <observer name="numismatic_newsletter_subscription_observer" instance="PinBlooms\Notifications\Observer\NewsletterSubscriptionNotification" />
+    </event>
+</config>
+
